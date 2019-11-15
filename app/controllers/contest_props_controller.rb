@@ -1,0 +1,2 @@
+class ContestPropsController < ApplicationController
+end
