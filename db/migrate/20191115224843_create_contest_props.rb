@@ -7,7 +7,8 @@ class CreateContestProps < ActiveRecord::Migration[6.0]
       t.string :sport
       t.string :home_team
       t.string :away_team
-      t.references :ContestWeek, null: false, foreign_key: true
+      t.integer :contest_week_id
+
 
       t.timestamps
     end
