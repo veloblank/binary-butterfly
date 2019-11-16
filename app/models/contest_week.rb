@@ -1,2 +1,3 @@
 class ContestWeek < ApplicationRecord
+
 end

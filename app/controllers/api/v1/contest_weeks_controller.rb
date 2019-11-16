@@ -1,6 +1,6 @@
 class Api::V1::ContestWeeksController < ApplicationController
   def index 
-    @contest_weeks = ContestWeeks.all
+    @contest_weeks = ContestWeek.all
     render json: @contest_weeks, status: 200
   end
 
