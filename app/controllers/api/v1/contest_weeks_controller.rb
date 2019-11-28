@@ -12,6 +12,12 @@ class Api::V1::ContestWeeksController < ApplicationController
       render json: {message: "The requested resource was not found"}
     end
   end
+
+  def current
+    contest_week = ContestWeek.all.last
+    contest_props = ContestProp.filter_by_contest_week(contest_week)
+    render json: contest_props, status: 200
+  end
   
   def create
     @contest_week = ContestWeek.create(contest_week_params)

@@ -7,5 +7,7 @@
 		"path": "/home/veloblank/dev/binary-butterfly/binary-butterfly-frontend"
 	}
 ],
-  "settings": {}
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "binary-butterfly-frontend"
+  }
 }
