@@ -1,3 +1,0 @@
-class ContestWeek < ApplicationRecord
-
-end

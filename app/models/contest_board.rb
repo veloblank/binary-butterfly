@@ -1,0 +1,3 @@
+class ContestBoard < ApplicationRecord
+
+end

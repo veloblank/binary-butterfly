@@ -4,7 +4,7 @@ props = doc.css(".matchup-container")
 
 props.each do |p|
   date = p.css(".startTime").attr("data-locktime").value
-  contest_week = ContestWeek.find_or_create_by(name: "#{Date.today.cweek}")
+  contest_board = ContestBoard.find_or_create_by(name: "#{Date.today.cweek}")
   ContestProp.create(
     title:  p.css(".gamequestion").text,
     date: DateTime.parse(date).in_time_zone('Eastern Time (US & Canada)').to_date,
@@ -12,7 +12,7 @@ props.each do |p|
     sport: p.css(".sport-description").text,
     away_team: p.css("td span strong")[0].text,
     home_team: p.css("td span strong")[1].text,
-    contest_week_id: contest_week.id
+    contest_board_id: contest_board.id
   )
 
 
