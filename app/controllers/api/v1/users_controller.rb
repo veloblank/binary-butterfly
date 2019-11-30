@@ -1,17 +1,14 @@
 class Api::V1::UsersController < ApplicationController
 
-  def new
-    @user = User.new
-  end
+
 
   def create
-    @user = User.new(user_params)
-    @user.create_pick_history
-    if @user.save
-      login @user
-      redirect_to root_path
+    user = User.new(user_params)
+    #@user.create_pick_history
+    if user.save
+      render json: {message: "User successfully created!"}
     else
-      render :new
+      render json: {message: user.errors}
     end
   end
 
@@ -19,6 +16,6 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email)
   end
 end
