@@ -17,3 +17,11 @@ props.each do |p|
 
 
 end
+
+100.times do
+    email = Faker::Internet.free_email
+    username = Faker::Internet.username
+    #password = Faker::Internet.password(8)
+    password = "1234567890"
+    user = User.create(email: email, username: username, password: password)
+  end
