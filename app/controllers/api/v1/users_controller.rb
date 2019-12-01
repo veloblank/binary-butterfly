@@ -13,6 +13,15 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def login
+    user = User.find_by(:username => params[:username])
+    if user 
+      render json: user
+    else 
+      render json: {message: "You could not be logged in!"}
+    end
+  end
+
 
   private
 

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do 
       resources :users
       get '/current', to: "contest_boards#current"
+      post '/login', to: "users#login"
       resources :contest_boards, only: [:show, :index] do
         resources :contest_props, only: [:show, :index]
       end
