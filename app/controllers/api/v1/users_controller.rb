@@ -1,14 +1,15 @@
 class Api::V1::UsersController < ApplicationController
-
-
-
   def create
     user = User.new(user_params)
     #@user.create_pick_history
     if user.save
       render json: {message: "User successfully created!", status: 201}
     else
-      render json: {message: user.errors.full_messages}
+      render json: {
+        message: {
+          errors: user.errors.full_messages
+        }
+      }
     end
   end
 
