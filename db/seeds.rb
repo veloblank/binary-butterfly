@@ -25,3 +25,13 @@ end
     #password = "1234567890"
     user = User.create(email: email, username: username)
   end
+
+  props = ContestProp.all.count
+  sides = ["home", "away"]
+  User.all.each do |user|
+    arr = Array(1..props).sample(props)
+    confidence = Array(1..25)
+    arr.each_with_index do |arg, n|
+      user.user_picks.create(contest_prop_id: arr[n], confidence: confidence.sample, side: sides.sample)
+    end
+  end
