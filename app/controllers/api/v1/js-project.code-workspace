@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"path": "/home/veloblank/dev/binary-butterfly/binary-butterfly-backend/binary-butterfly-api"
+	},
+	{
+		"path": "/home/veloblank/dev/binary-butterfly/binary-butterfly-frontend"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "binary-butterfly-frontend"
+  }
+}

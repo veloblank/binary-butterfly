@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_15_224843) do
+ActiveRecord::Schema.define(version: 2019_11_29_180735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contest_boards", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "contest_props", force: :cascade do |t|
     t.string "title"
@@ -22,13 +28,14 @@ ActiveRecord::Schema.define(version: 2019_11_15_224843) do
     t.string "sport"
     t.string "home_team"
     t.string "away_team"
-    t.integer "contest_week_id"
+    t.integer "contest_board_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "contest_weeks", force: :cascade do |t|
-    t.string "name"
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

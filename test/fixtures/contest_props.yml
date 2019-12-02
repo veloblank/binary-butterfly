@@ -7,7 +7,7 @@ one:
   sport: MyString
   home_team: MyString
   away_team: MyString
-  ContestWeek: one
+  ContestBoard: one
 
 two:
   title: MyString
@@ -16,4 +16,4 @@ two:
   sport: MyString
   home_team: MyString
   away_team: MyString
-  ContestWeek: two
+  ContestBoard: two
