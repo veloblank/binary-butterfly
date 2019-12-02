@@ -197,7 +197,7 @@ DEPENDENCIES
   pry
   puma (~> 4.1)
   rack-cors
-  rails (~> 6.0.1)
+  rails (~> 6.0.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
