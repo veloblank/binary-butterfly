@@ -12,7 +12,7 @@ class CreateContestProps < ActiveRecord::Migration[6.0]
       t.boolean :scored, default: false
       t.boolean :locked, default: false
       t.integer :contest_board_id
-
+ 
 
       t.timestamps
     end
