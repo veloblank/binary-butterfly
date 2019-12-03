@@ -1,0 +1,2 @@
+class UserContestBoardsController < ApplicationController
+end
