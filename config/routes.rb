@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   resources :user_contest_boards
   namespace :api do 
     namespace :v1 do 
-      resources :user_picks
-      resources :users
+      resources :users do 
+        resources :user_picks
+      end
       get '/current', to: "contest_boards#current"
       post '/login', to: "users#login"
       resources :contest_boards, only: [:show, :index] do
