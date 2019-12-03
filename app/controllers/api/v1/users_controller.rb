@@ -14,7 +14,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def login
-    user = User.find_by(:username => params[:username])
+    user = User.find_or_create_by(user_params)
     if user 
       render json: user
     else 
