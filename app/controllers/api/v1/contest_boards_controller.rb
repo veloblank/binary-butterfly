@@ -1,6 +1,6 @@
 class Api::V1::ContestBoardsController < ApplicationController
   def index 
-    @contest_boards = ContestBoard.all
+    contest_boards = ContestBoard.all
     render json: @contest_boards, status: 200
   end
 

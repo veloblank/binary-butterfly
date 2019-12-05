@@ -12,7 +12,7 @@ class Api::V1::ContestPropsController < ApplicationController
       contest_props = ContestProp.all
     end
 
-    render json: contest_props, status: 200
+    render json: contest_props
 
   end
 end
