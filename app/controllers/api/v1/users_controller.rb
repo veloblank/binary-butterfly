@@ -12,9 +12,12 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  def login
+  def index
+    users = User.all
+    render json: users
   end
 
+  
 
   private
 
