@@ -7,7 +7,7 @@ class Api::V1::ContestBoardsController < ApplicationController
   def show
     contest_board = ContestBoard.find_by(id: params[:id])
     if contest_board
-      render json: contest_board
+      render json: contest_board, status: 200
     else
       render json: {message: "The requested resource was not found"}
     end
@@ -16,7 +16,7 @@ class Api::V1::ContestBoardsController < ApplicationController
   def current
     contest_board = ContestBoard.all.last
     contest_props = ContestProp.filter_by_contest_board(contest_board)
-    render json: contest_props
+    render json: contest_props, status: 200
   end
   
   def create
@@ -41,7 +41,7 @@ class Api::V1::ContestBoardsController < ApplicationController
     contest_board = ContestBoard.find_by(id: params[:id])
     if contest_board
       contest.delete
-      render json: {contest_board_id: @contest_board.id}
+      render json: {contest_board_id: @contest_board.id, status: 200}
     else
       render json: {message: "The resource could not be retrieved and deleted."}
     end
