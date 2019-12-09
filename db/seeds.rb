@@ -8,7 +8,8 @@ props.each do |p|
   #If turning into a weekly contest a la American football (NFL) with weekly games
   #contest_board = ContestBoard.find_or_create_by(name: "#{Date.today.cweek}")
   
-  contest_board = ContestBoard.find_or_create_by(name: "#{DateTime.now.beginning_of_day}")
+  name = DateTime.now.beginning_of_day
+  contest_board = ContestBoard.find_or_create_by(name: "#{name}")
   ContestProp.create(
     title:  p.css(".gamequestion").text,
     date: DateTime.parse(date).in_time_zone('Eastern Time (US & Canada)').to_date,
