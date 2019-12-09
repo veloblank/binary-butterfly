@@ -1,8 +1,10 @@
 class Api::V1::UsersController < ApplicationController
   def create
     user = User.find_or_initialize_by(user_params)
-    if user.save
-      render json: user
+    if user && user.exists?(user_params)
+      render json: user, status: 200
+    elsif user.save
+      render json: user, status: 200
     else
       render json: {
         message: {
@@ -12,12 +14,19 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def show
+    user = User.find_by(:id => params[:id])
+    if user
+      render json: user, status: 200
+    else
+      render json: {message: "The requested user could not be found."}
+    end
+  end
+
   def index
     users = User.all
     render json: users
   end
-
-  
 
   private
 
