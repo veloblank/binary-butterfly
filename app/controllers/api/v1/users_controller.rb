@@ -1,10 +1,11 @@
 class Api::V1::UsersController < ApplicationController
   def create
     user = User.find_or_initialize_by(user_params)
-    if user && user.exists?(user_params)
+    #NO Authentication or Authorization is taking place
+    if User.exists?(user.id)
       render json: user, status: 200
     elsif user.save
-      render json: user, status: 200
+      render json: user, status: 204
     else
       render json: {
         message: {

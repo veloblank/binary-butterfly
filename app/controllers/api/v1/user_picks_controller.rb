@@ -21,6 +21,7 @@ class Api::V1::UserPicksController < ApplicationController
   def index
     if params[:user_id]
       user = User.find_by(:id => params[:user_id])
+      current_board = ContestBoard.last
       user_picks = UserPick.where("user_id = ?", user.id)
       render json: user_picks, status: 200
     else
