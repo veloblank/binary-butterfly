@@ -20,7 +20,8 @@ class Api::V1::ContestBoardsController < ApplicationController
   end
   
   def create
-    contest_board = ContestBoard.new(contest_board_params)
+    name = DateTime.now.beginning_of_day
+    contest_board = ContestBoard.new(name)
     if contest_board.save
       render json: contest_board, status: 200
     else
@@ -51,6 +52,6 @@ class Api::V1::ContestBoardsController < ApplicationController
   private
   
   def contest_board_params
-    params.require(:contest_board).permit(:name)    
+    params.require(:contest_board)    
   end
 end

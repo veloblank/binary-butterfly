@@ -4,7 +4,11 @@ props = doc.css(".matchup-container")
 
 props.each do |p|
   date = p.css(".startTime").attr("data-locktime").value
-  contest_board = ContestBoard.find_or_create_by(name: "#{Date.today.cweek}")
+
+  #If turning into a weekly contest a la American football (NFL) with weekly games
+  #contest_board = ContestBoard.find_or_create_by(name: "#{Date.today.cweek}")
+  
+  contest_board = ContestBoard.find_or_create_by(name: "#{DateTime.now.beginning_of_day}")
   ContestProp.create(
     title:  p.css(".gamequestion").text,
     date: DateTime.parse(date).in_time_zone('Eastern Time (US & Canada)').to_date,
