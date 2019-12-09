@@ -19,9 +19,14 @@ class Api::V1::UserPicksController < ApplicationController
   end
 
   def index
-    user = User.find_by(:id => params[:user_id])
-    picks = UserPick.where("user_id = ?", user.id)
-    render json: picks, status: 200
+    if params[:user_id]
+      user = User.find_by(:id => params[:user_id])
+      user_picks = UserPick.where("user_id = ?", user.id)
+      render json: user_picks, status: 200
+    else
+      user_picks = UserPicks.all
+      render json: user_picks
+    end
   end
 
   def show
