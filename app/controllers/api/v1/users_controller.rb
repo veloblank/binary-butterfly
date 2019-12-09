@@ -3,11 +3,14 @@ class Api::V1::UsersController < ApplicationController
     user = User.find_or_initialize_by(user_params)
     #NO Authentication or Authorization is taking place
     if User.exists?(user.id)
-      board = user.contest_boards.find_or_create_by(DateTime.now.beginning_of_day)
-      render json: user, :include => ContestBoard.where(:name == DateTime.now.beginning_of_day), status: 200
+      board = ContestBoard.last
+      user_board = user.user_contest_boards.find_or_create_by(contest_board_id: board.id)
+      render json: {user: user, board: board }, status: 200
+      //TODO:
     elsif user.save
-      board = user.contest_boards.find_or_create_by(DateTime.now.beginning_of_day)
-      render json: user, :include => ContestBoard.where(:name == DateTime.now.beginning_of_day), status: 200
+      board = ContestBoard.last
+      user_board = user.user_contest_boards.find_or_create_by(contest_board_id: board.id)
+      render json: {user: user, board: board}, status: 200
     else
       render json: {
         message: {
