@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         resources :contest_props, only: [:show, :index]
       end
       resources :contest_props
+      resources :user_picks, only: [:create, :index, :show, :destroy, :update]
     end
   end
 end

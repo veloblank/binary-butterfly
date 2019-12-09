@@ -41,7 +41,7 @@ class Api::V1::ContestBoardsController < ApplicationController
     contest_board = ContestBoard.find_by(id: params[:id])
     if contest_board
       contest.delete
-      render json: {contest_board_id: @contest_board.id, status: 200}
+      render json: {contest_board_id: contest_board.id, status: 200}
     else
       render json: {message: "The resource could not be retrieved and deleted."}
     end
