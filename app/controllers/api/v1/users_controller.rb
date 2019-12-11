@@ -4,13 +4,12 @@ class Api::V1::UsersController < ApplicationController
     #NO Authentication or Authorization is taking place
     if User.exists?(user.id)
       board = ContestBoard.last
-      user_board = user.user_contest_boards.find_or_create_by(contest_board_id: board.id)
-      render json: {user: user, board: board }, status: 200
-      //TODO:
+      user_board = user.user_contest_boards.find_or_create_by(user_id: user.id, contest_board_id: board.id)
+      render json: {user: user, board: board.to_json(include: [:contest_props])}, status: 200
     elsif user.save
       board = ContestBoard.last
       user_board = user.user_contest_boards.find_or_create_by(contest_board_id: board.id)
-      render json: {user: user, board: board}, status: 200
+      render json: {user: user, board: board.to_json(include: [:contest_props])}, status: 200
     else
       render json: {
         message: {
