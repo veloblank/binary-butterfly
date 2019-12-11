@@ -7,7 +7,7 @@ class Api::V1::ContestBoardsController < ApplicationController
   def show
     contest_board = ContestBoard.find_by(id: params[:id])
     if contest_board
-      render json: contest_board, status: 200
+      render json: contest_board.to_json(include: [:contest_props]), status: 200
     else
       render json: {message: "The requested resource was not found"}
     end
