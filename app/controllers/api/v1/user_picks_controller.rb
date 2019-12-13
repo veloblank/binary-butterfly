@@ -25,7 +25,7 @@ class Api::V1::UserPicksController < ApplicationController
       user_picks = UserPick.where("user_id = ?", user.id)
       render json: user_picks, status: 200
     else
-      user_picks = UserPicks.all
+      user_picks = UserPick.all
       render json: user_picks
     end
   end
