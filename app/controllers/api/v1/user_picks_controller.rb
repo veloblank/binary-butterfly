@@ -40,6 +40,7 @@ class Api::V1::UserPicksController < ApplicationController
   end
 
   def update
+    
     user_pick = UserPick.find_by(:id => params[:id])
     if user_pick && user_pick.update(user_pick_params)
       render json: user_pick, status: 200
