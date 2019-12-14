@@ -29,6 +29,8 @@ end
     #password = Faker::Internet.password(8)
     #password = "1234567890"
     user = User.create(email: email, username: username)
+    board = ContestBoard.last
+    user_board = user.user_contest_boards.find_or_create_by(contest_board_id: board.id)
   end
 
   props = ContestProp.all.count
