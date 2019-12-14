@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       end
       resources :contest_props
       resources :user_picks, only: [:create, :index, :show, :destroy, :update]
+      resources :user_contest_boards, only:[:index, :destroy, :create]
     end
   end
 end
